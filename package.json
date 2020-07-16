@@ -1,0 +1,48 @@
+{
+  "name": "sessions-manager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run clean && npm run build:babel",
+    "build:babel": "cross-env babel src -d build --copy-files",
+    "clean": "rm -rf build .nyc_output build coverage && mkdir build",
+    "coverage": "npm test && cat ./coverage/lcov.info | coveralls",
+    "dev": "DEBUG=dev nodemon --exec babel-node src/server.js",
+    "test": "NODE_ENV=test nyc mocha test/test.spec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meetKazuki/sessions-manager.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/meetKazuki/sessions-manager/issues"
+  },
+  "homepage": "https://github.com/meetKazuki/sessions-manager#readme",
+  "dependencies": {
+    "debug": "^4.1.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.10.5",
+    "@babel/node": "^7.10.5",
+    "@babel/plugin-transform-runtime": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/register": "^7.10.5",
+    "chai": "^4.2.0",
+    "coveralls": "^3.1.0",
+    "eslint": "^7.4.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "mocha": "^8.0.1",
+    "nodemon": "^2.0.4",
+    "nyc": "^15.1.0",
+    "supertest": "^4.0.2"
+  }
+}
