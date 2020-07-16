@@ -12,5 +12,8 @@
     "ecmaVersion": 11,
     "sourceType": "module"
   },
-  "rules": {}
+  "rules": {
+    "global-require": "off",
+    "import/no-dynamic-require": "off"
+  }
 }
