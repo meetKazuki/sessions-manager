@@ -8,6 +8,10 @@
     "build:babel": "cross-env babel src -d build --copy-files",
     "clean": "rm -rf build .nyc_output build coverage && mkdir build",
     "coverage": "npm test && cat ./coverage/lcov.info | coveralls",
+    "db:migrate": "sequelize db:migrate",
+    "db:migrate:undo": "sequelize db:migrate:undo:all",
+    "db:reset": "npm run db:migrate:undo && npm run db:migrate",
+    "db:seed": "sequelize db:seed:all",
     "dev": "DEBUG=dev nodemon --exec babel-node src/server.js",
     "test": "NODE_ENV=test nyc mocha test/test.spec.js"
   },
