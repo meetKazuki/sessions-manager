@@ -1,4 +1,8 @@
+const bcrypt = require('bcrypt');
+const { config } = require('dotenv');
 const { Model, Sequelize } = require('sequelize');
+
+config();
 
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
@@ -25,6 +29,29 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'User',
   });
+
+  User.beforeCreate((user) => {
+    user.password = user.generatePasswordHash();
+  });
+
+  User.toJSON = () => {
+    const values = { ...this.get() };
+    delete values.password;
+    return values;
+  };
+
+  User.getExistingUser = async (queryString, column = 'email') => {
+    const user = await User.findOne({ where: { [column]: queryString } });
+    return user;
+  };
+
+  User.prototype.generatePasswordHash = function generatePasswordHash() {
+    return bcrypt.hashSync(this.password, +process.env.SALT);
+  };
+
+  User.prototype.validatePassword = function validatePassword(password) {
+    return bcrypt.compareSync(password, this.password);
+  };
 
   return User;
 };

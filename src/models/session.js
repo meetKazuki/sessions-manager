@@ -18,12 +18,19 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: Sequelize.UUIDV4,
     },
     userId: DataTypes.UUID,
+    deviceId: DataTypes.STRING,
     deviceName: DataTypes.STRING,
     ipAddress: DataTypes.STRING,
     location: DataTypes.STRING,
+    isRevoked: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
   }, {
     sequelize,
     modelName: 'Session',
+    // paranoid: true,
+    // deletedAt: 'isRevoked',
   });
 
   return Session;
