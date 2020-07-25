@@ -18,5 +18,5 @@ process.on('unhandledRejection', (reason, promise) => {
 const server = http.createServer(app);
 
 server.listen(PORT, () => {
-  DEBUG(`server running on http://localhost:${PORT} in ${process.env.NODE_ENV} mode.\nPress CTRL-C to stop`);
+  DEBUG(`server running on http://localhost:${PORT} in ${process.env.NODE_ENV} mode.\npress CTRL-C to stop`);
 });

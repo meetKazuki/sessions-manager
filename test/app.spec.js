@@ -14,7 +14,7 @@ describe('App setup', () => {
 
     response.status.should.equal(200);
     response.body.status.should.eql('success');
-    response.body.message.should.eql('welcome to "Project Deliver"');
+    response.body.message.should.eql('welcome to "Sessions Manager"');
   });
 
   it('should return error if an invalid route is requested', async () => {

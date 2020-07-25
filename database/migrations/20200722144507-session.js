@@ -12,6 +12,9 @@ module.exports = {
         type: Sequelize.UUID,
         onDelete: 'CASCADE',
       },
+      deviceId: {
+        type: Sequelize.STRING,
+      },
       deviceName: {
         type: Sequelize.STRING,
       },
@@ -20,6 +23,10 @@ module.exports = {
       },
       location: {
         type: Sequelize.STRING,
+      },
+      isRevoked: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false,
       },
       createdAt: {
         allowNull: false,
