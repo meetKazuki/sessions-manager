@@ -17,7 +17,7 @@
     "heroku-postbuild": "export NPM_CONFIG_PRODUCTION=true; export NODE_ENV=production;",
     "postinstall": "npm run build && npm run db:migrate",
     "start": "node ./build/server.js",
-    "test": "NODE_ENV=test nyc mocha test/test.spec.js"
+    "test": "nyc mocha test/test.spec.js"
   },
   "repository": {
     "type": "git",
