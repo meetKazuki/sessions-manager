@@ -26,11 +26,12 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.BOOLEAN,
       defaultValue: false,
     },
+    deletedAt: DataTypes.DATE,
   }, {
     sequelize,
     modelName: 'Session',
-    // paranoid: true,
-    // deletedAt: 'isRevoked',
+    timestamps: true,
+    paranoid: true,
   });
 
   return Session;
