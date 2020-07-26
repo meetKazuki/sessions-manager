@@ -8,20 +8,26 @@ import validator from '../middleware/validator';
 const router = Router();
 
 const { verifyToken } = authentication;
-const { getAllSessions, logoutSession } = sessionController;
+const { getAllSessions, logoutSession, logoutAllSessions } = sessionController;
 const { logoutSchema } = sessionSchema;
-
-router.post(
-  '/:sessionId',
-  verifyToken,
-  validator(logoutSchema),
-  asyncWrapper(logoutSession),
-);
 
 router.get(
   '/',
   verifyToken,
   asyncWrapper(getAllSessions),
+);
+
+router.delete(
+  '/',
+  verifyToken,
+  asyncWrapper(logoutAllSessions),
+);
+
+router.delete(
+  '/:sessionId',
+  verifyToken,
+  validator(logoutSchema),
+  asyncWrapper(logoutSession),
 );
 
 export default router;

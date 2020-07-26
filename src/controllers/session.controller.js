@@ -41,4 +41,18 @@ export default {
       message: 'session has been logged-out',
     });
   },
+
+  logoutAllSessions: async (request, response) => {
+    const { user } = request;
+
+    const sessions = await Session.findAll();
+    if (!sessions) throw new NotFoundError('no session(s) for this user');
+
+    await Session.destroy({ where: { userId: user.id } });
+
+    return response.status(200).json({
+      status: 'success',
+      message: 'session history cleared',
+    });
+  },
 };
