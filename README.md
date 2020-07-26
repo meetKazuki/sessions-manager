@@ -55,3 +55,4 @@ Ensure you have the following installed on your local machine:
 ### RESOURCES
 - [Model Entities](https://dbdiagram.io/d/5f110de474ca2227330d7660)
 - [Hosted API](https://sess-staging.herokuapp.com/)
+- [Postman Collections](https://www.getpostman.com/collections/38749b12a8b5b316d746)
