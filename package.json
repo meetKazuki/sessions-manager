@@ -44,6 +44,7 @@
     "mysql2": "^2.1.0",
     "pg": "^8.3.0",
     "sequelize": "^6.3.3",
+    "sequelize-cli": "^6.2.0",
     "ua-parser-js": "^0.7.21"
   },
   "devDependencies": {
@@ -60,7 +61,6 @@
     "mocha": "^8.0.1",
     "nodemon": "^2.0.4",
     "nyc": "^15.1.0",
-    "sequelize-cli": "^6.2.0",
     "supertest": "^4.0.2"
   }
 }
