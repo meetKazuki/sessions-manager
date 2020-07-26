@@ -1,12 +1,9 @@
-// import debug from 'debug';
 import parser from 'ua-parser-js';
 import { ApplicationError } from '../helpers/error';
 import { generateToken } from '../helpers/auth';
 import models from '../models';
 
 const { User, Session } = models;
-
-// const DEBUG = debug('dev');
 
 export default {
   signup: async (request, response) => {
